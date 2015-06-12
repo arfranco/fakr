@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   get 'links/new' to: 'link#new'
   post 'links' to: 'links#create'
-  get 'link/:id'
+  get 'link/:id' to 'link#page'
 
   get 'link/:id/comments' to: 'comments#show'
   post 'link/:id/comments' to: 'comment#create'
