@@ -9,7 +9,7 @@ class LinksController < ApplicationController
   end
 
   def show 
-    @links.all
+    render :index
   end
 
 

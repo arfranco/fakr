@@ -2,7 +2,6 @@
 <html>
 <head>
   <title> Fakr </title>
-  <link href="<%= url('/application.css') %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="container">
@@ -36,8 +35,10 @@
       </div>
     </div>
     <div class="links">
-      <% @links.each do |link| %>
-        <%= render partial: "links", locals: { link: link } %>
+      <% if @links %>
+        <% @links.each do |link| %>
+          <%= render partial: "links", locals: { link: link } %>
+        <% end %>
       <% end %>
     </div>
   </div>
