@@ -13,15 +13,15 @@ Rails.application.routes.draw do
   post 'users', to: 'users#create'
 
   get 'users/login', to: 'sessions#show'
-  post 'users/session' to: 'sessions#create'
-  delete 'users/session' to: 'sessions#destroy'
+  post 'users/session', to: 'sessions#create'
+  delete 'users/session', to: 'sessions#destroy'
 
-  get 'links/new' to: 'link#new'
-  post 'links' to: 'links#create'
-  get 'link/:id' to 'link#page'
+  get 'links/new', to: 'link#new'
+  post 'links', to: 'links#create'
+  get 'link/:id', to: 'link#page'
 
-  get 'link/:id/comments' to: 'comments#show'
-  post 'link/:id/comments' to: 'comment#create'
+  get 'link/:id/comments', to: 'comments#show'
+  post 'link/:id/comments', to: 'comment#create'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
