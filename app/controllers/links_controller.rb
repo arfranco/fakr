@@ -1,6 +1,5 @@
 class LinksController < ApplicationController
   
-
   def create
     @links = Link.create(title: params[:title],
                         destination: params[:destination],
