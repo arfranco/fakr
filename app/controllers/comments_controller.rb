@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+
   def comments
     page = params[:page] || 1
     @comments = self.get_page(page)
@@ -49,4 +50,5 @@ class CommentsController < ApplicationController
     page_offset = (n - 1) * 10
     Comments.order(written_at: :content).offset(page_offset).limit(10)
   end
+
 end

@@ -1,0 +1,24 @@
+<h2>New Link</h2>
+
+<% # Title, Tags, Text %>
+<!-- Title, Tags, Text -->
+
+<%= form_tag('/links/new', class: 'link-form') do %>
+  <div class="link-input">
+    <%= label_tag(:title, "Title: ") %>
+    <%= text_field_tag(:title, nil, size: 40) %>
+  </div>
+
+  <div class="link-input">
+    <%= label_tag(:destination, "Link URL: ") %>
+    <%= text_field_tag(:destination, nil, size: 60) %>
+  </div> 
+
+  <br/>
+  <div><%= submit_tag 'Upload link' %></div>
+<% end %>
+
+<br/>
+<div>
+  <%= link_to "Back", :back %>
+</div>

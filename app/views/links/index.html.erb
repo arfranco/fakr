@@ -2,7 +2,6 @@
 <html>
 <head>
   <title> Fakr </title>
-  <link href="<%= url('/application.css') %>" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div class="container">
@@ -28,12 +27,19 @@
           <input class="searchbutton" type="button" value="Search">
         </form>
       </div>
-    <div class="spacer">
+      <div class="spacer">
         <form>
           <input class="signup" type="button" value="signup">
           <input class="register" type="button" value="register">
         </form>
+      </div>
     </div>
-   </div>
+    <div class="links">
+      <% if @links %>
+        <% @links.each do |link| %>
+          <%= render partial: "links", locals: { link: link } %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </html>
