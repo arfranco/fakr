@@ -1,12 +1,28 @@
 Rails.application.routes.draw do
+  get ':fakr', to: 'links#show', as: 'fakr'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root to: 'links#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+  
+  get 'users/new', to: 'user#new'
+  post 'users', to: 'users#create'
+
+  get 'users/login', to: 'sessions#show'
+  post 'users/session', to: 'sessions#create'
+  delete 'users/session', to: 'sessions#destroy'
+
+  get 'links/new', to: 'link#new'
+  post 'links', to: 'links#create'
+  get 'link/:id', to: 'link#page'
+  get 'links', to: 'links#show'
+
+  get 'link/:id/comments', to: 'comments#show'
+  post 'link/:id/comments', to: 'comment#create'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

@@ -8,6 +8,10 @@ class LinksController < ApplicationController
     # redirect_to post_path(@post)
   end
 
+  def show 
+    @links.all
+  end
+
 
 
 end
