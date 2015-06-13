@@ -1,15 +1,22 @@
 class LinksController < ApplicationController
   
   def create
-    @links = Link.create(title: params[:title],
+    @link = Link.create(title: params[:title],
                         destination: params[:destination],
-                        written_at: DateTime.now)
+                        created_at: DateTime.now)
     redirect_to links_path
     # redirect_to post_path(@post)
   end
 
-  def show 
+  def new
+    @link = Link.new
+    render :new
+  end
+
+  def show
+    @links = Link.all
     render :index
+
   end
 
 

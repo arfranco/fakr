@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   delete 'users/session', to: 'sessions#destroy'
 
   get 'links/new', to: 'links#new'
-  post 'links', to: 'links#create'
+  post 'links/new', to: 'links#create'
   get 'link/:id', to: 'links#page'
   get 'links', to: 'links#show'
 
