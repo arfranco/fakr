@@ -28,12 +28,17 @@
           <input class="searchbutton" type="button" value="Search">
         </form>
       </div>
-    <div class="spacer">
+      <div class="spacer">
         <form>
           <input class="signup" type="button" value="signup">
           <input class="register" type="button" value="register">
         </form>
+      </div>
     </div>
-   </div>
+    <div class="links">
+      <% @links.each do |link| %>
+        <%= render partial: "links", locals: { link: link } %>
+      <% end %>
+    </div>
   </div>
 </html>
