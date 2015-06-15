@@ -28,10 +28,8 @@
         </form>
       </div>
       <div class="spacer">
-        <form>
-          <input class="signup" type="button" value="signup">
-          <input class="register" type="button" value="register">
-        </form>
+        <%= button_to "New User/Sign Up", users_new_path, :class => "button", :method => :get  %>
+        <%= button_to "Login", users_new_path, :class => "button", :method => :get  %>
       </div>
     </div>
     <div class="links">

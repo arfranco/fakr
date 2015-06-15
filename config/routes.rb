@@ -22,7 +22,8 @@ Rails.application.routes.draw do
   get 'links', to: 'links#show'
 
   get 'link/:id/comments', to: 'comments#show'
-  post 'link/:id/comments', to: 'comments#create'
+  post 'link/:id/comments/new', to: 'comments#create'
+  get 'link/:id/comments/new', to: 'comments#new'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
