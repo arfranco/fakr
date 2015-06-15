@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :update]
 
   def show
     @link = Link.find(params[:id])
