@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Fakr </title>
+  <link href="<%= url('/application.css') %>" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="container">
+  
+  <header>
+    <div class="header">
+      <nav class="navigationlinks">
+        <a href="#">Comments</a>
+        <a href="#">Related</a>
+      </nav>
+    </div>
+  </header>
+ 
+  <div class="userlink">
+  
+      <div class="link">
+            
+            <%= render partial: "link", locals: {link: @link } %>
+   
+        </div>
+    </div>
+      
+      <br>
+    
+      <div>
+        <h2>top 200 Comments</h2> <p>show 500</p>
+        </div>
+      
+      <br>
+
+      <div class="comments">
+
+          <div class="new comments">
+
+			<textarea>
+            
+	            <% content_for :comment_rule do %>
+	             <% end %>
+	              <%= render partial: "new", locals: { link_id: link } %>
+		            <% end %>
+
+		          </textarea>
+				     
+	        </div>
+
+	    </div>
+          
+
+    <div class="side">
+      <div class="spacer">
+      <h3>Submit a Link</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
+
+<br/>
+<div>
+  <%= link_to "Back", :back %>
+</div>
+

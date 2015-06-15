@@ -1,0 +1,31 @@
+
+<div class="comment-input">
+  
+  <% content_for :comments_rule do %>
+
+    <ul>
+        <li>REMEBER</li>
+        <li> -- Be nice</li>
+        <li> -- No bots</li>
+        <li> -- No slurs or harrasing commnets</li>
+        <li> -- No linking to personal social media pages</li>
+        <li> -- No asking for donations (Try /r/Assistance)</li>
+
+    <% end %>
+
+  </div>
+
+  <div class="comment-input">
+
+    <%= render partial: "links", locals: { link: @link } %>
+    <%= form_tag(post_comment_path) do %>
+    <%= text_area_tag(:content) %>
+    <%= link_to "Add New Comment", comments_new_path  %>
+  </div>
+
+  <br/>
+
+  <div><%= submit_comment 'Save' %></div>
+
+<% end %>
+
