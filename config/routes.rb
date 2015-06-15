@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get 'links/new', to: 'links#new'
   post 'links', to: 'links#create'
   get 'link/:id', to: 'links#page'
+
   
   get 'link/:id/comments', to: 'link/comments#show'
   get 'link/:id/comment/new', to: 'link/comments#new'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
   get 'link/:id/comment', to: 'link/comments#page'
   patch 'link/:id/comment', to: 'link/comments#update'
   delete 'link/:id/comment', to: 'link/comments#destroy', as: 'comments_delete'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
