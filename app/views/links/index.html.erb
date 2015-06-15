@@ -6,32 +6,35 @@
 <body>
 <div class="container">
   <header>
-    <div class="header">
-      <h1 class="logo">Faker</h1>
-      <nav class="navigationlinks">
-        <a href="#">Hot</a>
-        <a href="#">New</a>
-        <a href="#">Rising</a>
-        <a href="#">Controversial</a>
-        <a href="#">Top</a>
-        <a href="#">Gilded</a>
-        <a href="#">Wiki</a>
-        <a href="#">Promoted</a>
-      </nav>
-    </div>
-  </header>
-    <div class="side">
+    <div class="row">
+      <div class="col-md-8">
+        <h1 class="logo">Faker</h1>
+          <nav class="navigationlinks">
+            <a href="#">Hot</a>
+            <a href="#">New</a>
+            <a href="#">Rising</a>
+            <a href="#">Controversial</a>
+            <a href="#">Top</a>
+            <a href="#">Gilded</a>
+            <a href="#">Wiki</a>
+            <a href="#">Promoted</a>
+          </nav>
+      </div>
+    <div class="col-md-4">
+      <div class="side">
       <div class="spacer">
-        <form>
+        <form class="form-inline">
          <input class="searchbar" type="text" placeholder="Search" required>
           <input class="searchbutton" type="button" value="Search">
         </form>
       </div>
-      <div class="spacer">
+      <div class="form-group">
         <%= button_to "New User/Sign Up", users_new_path, :class => "button", :method => :get  %>
         <%= button_to "Login", users_new_path, :class => "button", :method => :get  %>
       </div>
     </div>
+  </div>
+  </header>
     <div class="links">
       <% if @links %>
         <% @links.each do |link| %>
