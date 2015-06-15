@@ -3,46 +3,49 @@ class CommentsController < ApplicationController
   def comments
     page = params[:page] || 1
     @comments = self.get_page(page)
-    render :comments
+    render :show
   end
 
   def show
-    @comment = Comment.find(params[:user_id, :link_id])
-    render :comments
+    @comment = Comment.find(params[:link_id],
+                      content: params[:content])
+    @action = comments_path(@links)
+    @http_verb = :get
+    render :show
   end
 
   def new
-    @comment = Comment.new
-    @action = comments_path
-    @http_verb = :post
-    render :comments
+    @comments = Comment.new
+    render :new
   end
 
   def create
-    @comments = Comments.create(user: params[:user_id],
+    @comments = Comments.create(link: params[:link_id],
                         content: params[:content],
                         created_at: DateTime.now)
-    redirect_to comments_path
+    @http_verb = :post
+    redirect_to :comments
   end
 
   def edit
-    @comments = Comments.find(params[:user_id, :link_id])
-    @action = comments_path(@comments)
+    @comments = Comments.find(params[:link_id],
+                        content: params[:content])
+    @action = links_path(@links)
     @http_verb = :patch
     render :comments
   end
 
   def update
-    @comments = Comments.create(user: params[:user_id],
-                        content: params[:content],
-                        updated_at: DateTime.now)
-    redirect_to comments_path(@comments)
+    @comments = Comment.update(content: params[:content],
+                          updated_at: DateTime.now)
+    @http_verb = :patch
+    redirect_to :comments
   end
 
   def delete
-    @comments = Comments.find(params[:user_id, :link_id])
+    @comments = Comment.find(:link_id)
     @comments.destroy
-    redirect_to comments_path
+    redirect_to :comments
   end
 
   protected
