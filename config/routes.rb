@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get ':fakr', to: 'links#show', as: 'fakr'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -12,15 +13,10 @@ Rails.application.routes.draw do
   get '/users/new', to: 'users#new'
   post '/users', to: 'users#create'
 
-  get 'users/login', to: 'sessions#show'
-  post 'users/session', to: 'sessions#create'
-  delete 'users/session', to: 'sessions#destroy'
-
-  get 'links', to: 'links#show'
-  get 'links/new', to: 'links#new'
-  post 'links', to: 'links#create'
-  get 'link/:id', to: 'links#page', as: 'link_id'
-
+  get 'links', to: 'link#show'
+  get 'links/new', to: 'link#new'
+  post 'links', to: 'link#create'
+  get 'link/:id', to: 'link#page', as: 'link_id'
   
   get 'links/:id/comments', to: 'link/comments#show'
   get 'link/:id/comment/new', to: 'link/comments#new'
