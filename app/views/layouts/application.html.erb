@@ -21,24 +21,30 @@
             <a href="#">Wiki</a>
             <a href="#">Promoted</a>
           </nav>
-      </div>
-    <div class="col-md-4">
-      <div class="side">
-      <div class="spacer">
         <form class="form-inline">
          <input class="searchbar" type="text" placeholder="Search" required>
           <input class="searchbutton" type="button" value="Search">
         </form>
       </div>
+    </div>
+  <div class="row">
+      <div class="sidebar col-xs-2">
+        <ul class="list-unstyled">
+          <% if current_user %>
+            <li><%= link_to "Logout", destroy_user_session_path, method: :delete,
+                            class: 'btn btn-warning' %></li>
+          <% else %>
+             <li><%= link_to "Login", new_user_session_path, class: 'btn btn-success' %>
+          <% end %>
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
       <div class="form-group">
-        <%= button_to "New User/Sign Up", users_new_path, :class => "button", :method => :get  %>
-        <%= button_to "Login", users_new_path, :class => "button", :method => :get  %>
+        <%= button_to "New User/Sign Up", new_user_session_path, :class => "button", :method => :get  %>
+        <%= button_to "Login", new_user_session_path, :class => "button", :method => :get  %>
       </div>
     </div>
   </div>
-  </header>
+</header>
 
 
 <%= yield %>
