@@ -1,4 +1,6 @@
 class LinksController < ApplicationController
+
+  before_action :authenticate_user!, only: [:create, :update]
   
   def create
     @link = Link.create(title: params[:title],
